@@ -4,9 +4,11 @@ source "https://rubygems.org"
 
 ruby '2.6.3'
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
+gem 'bcrypt', require: 'bcrypt'
 gem 'dotenv', require: 'dotenv'
+gem 'jwt'
 gem 'puma'
 gem 'sequel', '>= 5'
 gem 'sequel_pg', require: 'sequel'

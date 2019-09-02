@@ -5,12 +5,12 @@ module API
     module Users
       def self.registered(app)
         app.get '/users' do
-          User.all.to_json
+          User.to_json(except: [:password_digest])
         end
 
         app.get '/users/:id' do
           user = User[params[:id]]
-          user.to_json
+          user.to_json(except: [:password_digest])
         end
 
         app.post '/users' do
