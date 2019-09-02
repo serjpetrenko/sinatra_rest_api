@@ -5,7 +5,8 @@ require 'sinatra/namespace'
 require 'shotgun'
 require 'sinatra/json'
 
-Dir[File.dirname(__FILE__) + '/routes/api/v1/*.rb'].each { |f| require f }
+Dir.glob('./routes/api/v1/*.rb').each { |f| require f }
+Dir.glob('./helpers/*.rb').each { |f| require f }
 
 configure { set :server, :puma }
 
@@ -15,6 +16,7 @@ class SinatraApi < Sinatra::Application
       content_type 'application/json'
     end
 
+    helpers API::Helpers::JsonParams
     register API::Routes::Users
   end
 end
