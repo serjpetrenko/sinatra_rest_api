@@ -5,7 +5,11 @@ module API
     module Users
       def self.registered(app)
         app.get '/users' do
-          user = { name: 'John', surname: 'Doe' }
+          User.all.to_json
+        end
+
+        app.get '/users/:id' do
+          user = User[params[:id]]
           user.to_json
         end
       end

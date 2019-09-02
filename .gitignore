@@ -1,3 +1,4 @@
 # Ignore bundler config.
 /.bundle
 .env
+.byebug_history

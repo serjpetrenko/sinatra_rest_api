@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'sinatra/namespace'
 require 'shotgun'
+require 'sinatra/json'
 
 Dir[File.dirname(__FILE__) + '/routes/api/v1/*.rb'].each { |f| require f }
 
