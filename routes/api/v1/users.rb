@@ -5,22 +5,21 @@ module API
     module Users
       def self.registered(app)
         app.get '/users' do
-          User.to_json(except: [:password_digest])
+          User.to_json(except: :password_digest)
         end
 
         app.get '/users/:id' do
           user = User[params[:id]]
-          user.to_json(except: [:password_digest])
+          user.to_json(except: :password_digest, include: :posts)
         end
 
         app.post '/users' do
           user = User.new(json_params)
           if user.save
-            user.to_json
             status 201
+            user.to_json(except: :password_digest)
           else
-            status 422
-            user.to_json
+            halt 422, user.to_json
           end
         end
 
@@ -29,8 +28,7 @@ module API
           if user.update(json_params)
             user.to_json
           else
-            status 422
-            user.to_json
+            halt 422, user.to_json
           end
         end
 

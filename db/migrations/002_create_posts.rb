@@ -2,16 +2,13 @@
 
 Sequel.migration do
   change do
-    run 'CREATE EXTENSION "uuid-ossp"'
-
-    create_table(:users) do
+    create_table(:posts) do
       column :id, :uuid, default: Sequel.function(:uuid_generate_v4), primary_key: true
-      String :first_name, null: false
-      String :last_name, null: false
-      String :email, null: false
-      String :password_digest, null: false
+      String :title, null: false
+      String :body, null: false
       DateTime :created_at
       DateTime :updated_at
+      foreign_key :user_id, :users, type: :uuid
     end
   end
 end

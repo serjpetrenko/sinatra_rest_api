@@ -5,6 +5,8 @@ require 'bcrypt'
 class User < Sequel::Model
   include BCrypt
 
+  one_to_many :posts
+
   def password
     @password ||= Password.new(password_digest)
   end
