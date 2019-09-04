@@ -11,7 +11,7 @@ module API
 
       def authenticate_token!
         payload = JsonWebToken.decode(auth_token)
-        @current_user = User.find(payload['sub'])
+        @current_user = User[payload['sub']]
       rescue JWT::ExpiredSignature
         halt 404, { errors: ['Auth token has expired'] }.to_json
       rescue JWT::DecodeError

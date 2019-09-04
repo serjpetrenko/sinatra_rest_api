@@ -1,42 +1,40 @@
 # frozen_string_literal: true
 
 module API
-  module Routes
-    module Users
-      def self.registered(app)
-        app.get '/users' do
-          User.to_json(except: :password_digest)
-        end
+  module V1
+    class Users < Base
+      get '/users' do
+        User.to_json(except: :password_digest)
+      end
 
-        app.get '/users/:id' do
-          user = User[params[:id]]
-          user.to_json(except: :password_digest, include: :posts)
-        end
+      get '/users/:id' do
+        user = User[params[:id]]
+        user.to_json(except: :password_digest, include: :posts)
+      end
 
-        app.post '/users' do
-          user = User.new(json_params)
-          if user.save
-            status 201
-            user.to_json(except: :password_digest)
-          else
-            halt 422, user.to_json
-          end
+      post '/users' do
+        user = User.new(json_params)
+        if user.save
+          status 201
+          user.to_json(except: :password_digest)
+        else
+          halt 422, user.to_json
         end
+      end
 
-        app.put '/users/:id' do
-          user = User[params[:id]]
-          if user.update(json_params)
-            user.to_json
-          else
-            halt 422, user.to_json
-          end
+      put '/users/:id' do
+        user = User[params[:id]]
+        if user.update(json_params)
+          user.to_json
+        else
+          halt 422, user.to_json
         end
+      end
 
-        app.delete '/users/:id' do
-          user = User[params[:id]]
-          user.destroy
-          status 204
-        end
+      delete '/users/:id' do
+        user = User[params[:id]]
+        user.destroy
+        status 204
       end
     end
   end
