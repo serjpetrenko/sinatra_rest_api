@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 require './config/boot'
+require 'rubygems'
 
-run SinatraApi
+map('/api/v1/') { run SinatraApi }
