@@ -8,7 +8,7 @@ module API
       end
 
       def user
-        @user ||= User.find(email: json_params['email'])
+        @user ||= User.find(email: json_params[:email])
       end
 
       def authenticate_token!

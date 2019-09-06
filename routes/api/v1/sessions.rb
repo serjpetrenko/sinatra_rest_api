@@ -4,8 +4,8 @@ module API
   module V1
     class Sessions < Base
       post '/sessions' do
-        user = User.find(email: json_params['email'])
-        if user && check_password(json_params['password'], user.password_digest)
+        user = User.find(email: json_params[:email])
+        if user && check_password(json_params[:password], user.password_digest)
           { user: user, auth_token: token }.to_json
         else
           halt 404, { error: "Can't authenticate try again" }.to_json

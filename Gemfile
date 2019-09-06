@@ -15,6 +15,7 @@ gem 'sequel_pg', require: 'sequel'
 gem 'shotgun'
 gem 'sinatra', '~> 2.0.7'
 gem 'sinatra-contrib'
+gem 'sinatra-cross_origin'
 
 group :development, :test do
   gem 'pry-byebug', require: 'pry'
