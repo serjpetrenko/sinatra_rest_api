@@ -9,7 +9,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gem 'bcrypt', require: 'bcrypt'
 gem 'dotenv', require: 'dotenv'
 gem 'jwt'
-gem 'puma'
+gem 'puma', '>= 4.3.1'
 gem 'sequel', '>= 5'
 gem 'sequel_pg', require: 'sequel'
 gem 'shotgun'
