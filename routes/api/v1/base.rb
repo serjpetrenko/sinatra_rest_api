@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'sinatra/cross_origin'
-Dir.glob('./helpers/*.rb').each { |f| require f }
+Dir.glob('./helpers/*.rb').sort.each { |f| require f }
 
 module API
   module V1

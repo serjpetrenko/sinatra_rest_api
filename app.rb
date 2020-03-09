@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 require 'sinatra'
-require 'shotgun'
 require 'sinatra/json'
 require 'jwt'
 
-Dir.glob('./routes/api/v1/*.rb').each { |f| require f }
+Dir.glob('./routes/api/v1/*.rb').sort.each { |f| require f }
 
 configure { set :server, :puma }
 

@@ -9,6 +9,7 @@ end
 
 desc 'Starting api server using shotgun'
 task shotgun: :environment do
+  require 'shotgun'
   sh 'shotgun config.ru'
 end
 
@@ -29,4 +30,4 @@ task pry: :console
 
 task shot: :shotgun
 
-Dir.glob('./lib/tasks/**/*.rake').each { |task| load(task) }
+Dir.glob('./lib/tasks/**/*.rake').sort.each { |task| load(task) }

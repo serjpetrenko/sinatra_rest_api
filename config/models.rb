@@ -7,4 +7,4 @@ Sequel::Model.plugin(:json_serializer)
 Sequel::Model.plugin(:timestamps)
 Sequel::Model.plugin(:uuid)
 
-Dir.glob('./models/*.rb').each { |f| require f }
+Dir.glob('./models/*.rb').sort.each { |f| require f }
