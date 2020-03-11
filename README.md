@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/serjpetrenko/sinatra_rest_api.svg?branch=master)](https://travis-ci.org/serjpetrenko/sinatra_rest_api)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=serjpetrenko_sinatra_rest_api&metric=alert_status)](https://sonarcloud.io/dashboard?id=serjpetrenko_sinatra_rest_api)
 
 Sinatra Rest API

@@ -1,16 +1,22 @@
 ---
 language: ruby
+
 cache: bundler
+
 rvm:
   - 2.6.3
+
 before_install:
   - gem install bundler -v 2.1.2
   - bundle install
+
 services:
   - postgresql
+
 before_script:
   - psql -c 'create database sinatra_rest_api_test;' -U postgres
   - cp .env.travis .env
+  
 script:
   - rake db:test:migrate
   - rspec spec
