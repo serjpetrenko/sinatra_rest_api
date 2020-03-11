@@ -19,6 +19,11 @@ require File.expand_path('../app.rb', __dir__)
 # Configure Sequel
 DB = Sequel.connect(ENV.fetch('TEST_DATABASE_URL'), max_connections: ENV['POOL_SIZE'])
 
+# Require sequel plugins
+Sequel::Model.plugin(:json_serializer)
+Sequel::Model.plugin(:timestamps)
+Sequel::Model.plugin(:uuid)
+
 # Require models
 Dir.glob('./models/*.rb').sort.each { |f| require f }
 
