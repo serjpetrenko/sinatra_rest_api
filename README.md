@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=serjpetrenko_sinatra_rest_api&metric=alert_status)](https://sonarcloud.io/dashboard?id=serjpetrenko_sinatra_rest_api)
+
 Sinatra Rest API
 =============
 
