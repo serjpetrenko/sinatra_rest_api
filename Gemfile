@@ -18,5 +18,8 @@ gem 'sinatra-contrib', '~> 2.0', '>= 2.0.8.1'
 gem 'sinatra-cross_origin'
 
 group :development, :test do
+  gem 'database_cleaner-sequel'
   gem 'pry-byebug', require: 'pry'
+  gem 'rack-test'
+  gem 'rspec'
 end

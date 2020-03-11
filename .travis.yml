@@ -4,3 +4,7 @@ cache: bundler
 rvm:
   - 2.6.3
 before_install: gem install bundler -v 2.1.2
+script:
+  - createdb sinatra_rest_api_test
+  - rake db:test:migrate
+  - rspec spec
